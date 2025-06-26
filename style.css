@@ -1,0 +1,304 @@
+/* style.css */
+
+/* Variables CSS pour les couleurs */
+:root {
+    --unfpa-orange: #FF6600; /* Un orange vif pour l'UNFPA */
+    --unfpa-dark-blue: #00008B; /* Un bleu foncé pour le contraste */
+    --unfpa-white: #FFFFFF;
+    --unfpa-light-gray: #f8f9fa; /* Une couleur de fond légère */
+    --text-color: #333333; /* Couleur de texte générale */
+}
+
+/* Styles de base pour le corps du document */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--unfpa-light-gray); /* Fond gris très clair */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Pour que le footer reste en bas */
+}
+
+/* Styles pour le conteneur principal (similaire à Bootstrap .container) */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* En-tête du site */
+.site-header {
+    background-color: var(--unfpa-dark-blue); /* Bleu foncé */
+    color: var(--unfpa-white);
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: relative; /* Nécessaire pour le positionnement du menu burger */
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Pour la réactivité */
+}
+
+.site-title {
+    margin: 0;
+    font-size: 2.5em;
+    font-weight: bold;
+    padding: 5px 15px;
+    background-color: rgba(0,0,0,0.2); /* Un peu de transparence pour le titre */
+    border-radius: 8px;
+}
+
+/* Navigation */
+.main-nav .nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-nav .nav-list li {
+    margin-left: 25px;
+}
+
+.main-nav .nav-list a {
+    color: var(--unfpa-white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.main-nav .nav-list a:hover {
+    color: var(--unfpa-orange); /* Orange au survol */
+}
+
+/* Contenu principal */
+.site-main {
+    flex-grow: 1; /* Permet au main de prendre l'espace disponible */
+    padding: 40px 0;
+}
+
+.section-content {
+    background-color: var(--unfpa-white);
+    padding: 40px;
+    margin-bottom: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.section-title {
+    color: var(--unfpa-dark-blue);
+    text-align: center;
+    font-size: 2.8em;
+    margin-bottom: 30px;
+    font-weight: bolder;
+}
+
+/* Grille de cartes pour les domaines d'action */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--unfpa-light-gray);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.card-title {
+    color: var(--unfpa-orange); /* Titre de carte en orange */
+    font-size: 1.8em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.card-text {
+    color: var(--text-color);
+    font-size: 1.1em;
+}
+
+/* Pied de page */
+.site-footer {
+    background-color: var(--unfpa-dark-blue);
+    color: var(--unfpa-white);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 30px; /* Ajoute un peu d'espace avec le contenu au-dessus */
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+.footer-content {
+    font-size: 0.9em;
+}
+
+/* --- Styles pour le Menu Burger (Mobile) --- */
+.menu-toggle {
+    display: none; /* Caché par défaut sur les grands écrans */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000; /* Assure qu'il est au-dessus du contenu */
+}
+
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--unfpa-white);
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animation du bouton burger quand il est actif */
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* --- Styles pour le Carrousel d'Images --- */
+.carousel-section {
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* Largeur maximale du carrousel */
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.carousel-slide {
+    display: none; /* Géré par JS */
+    text-align: center;
+    padding: 20px;
+    background-color: var(--unfpa-white);
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Supprime l'espace sous l'image */
+    margin: 0 auto 15px auto;
+    border-radius: 10px;
+}
+
+.carousel-slide p {
+    font-size: 1.1em;
+    color: var(--text-color);
+}
+
+.carousel-prev,
+.carousel-next {
+    background-color: var(--unfpa-orange);
+    color: var(--unfpa-white);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 8px;
+    margin: 0 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+    background-color: var(--unfpa-dark-blue);
+    transform: translateY(-2px);
+}
+
+/* --- Styles pour les Effets de Scroll (Fade In) --- */
+.fade-out-init {
+    opacity: 0;
+    transform: translateY(20px); /* Commence un peu plus bas */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Media Queries pour la réactivité */
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start; /* Aligne le titre à gauche */
+        padding-right: 60px; /* Espace pour le bouton burger */
+    }
+
+    .site-title {
+        margin-bottom: 10px;
+    }
+
+    .main-nav .nav-list {
+        display: none; /* Cache le menu par défaut sur mobile */
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: var(--unfpa-dark-blue);
+        position: absolute;
+        top: 100%; /* Sous l'en-tête */
+        left: 0;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 10px 0;
+    }
+
+    .main-nav .nav-list.active {
+        display: flex; /* Affiche le menu quand il est actif */
+    }
+
+    .main-nav .nav-list li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block; /* Affiche le bouton burger sur mobile */
+    }
+
+    .section-title {
+        font-size: 2em;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+}
